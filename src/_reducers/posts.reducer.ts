@@ -1,8 +1,8 @@
 import { Post } from "../Posts/Post";
 
 interface PostsState {
-    message: string,
-    post: Post
+    message?: string,
+    post?: Post
 }
 
 interface PostsAction {
@@ -10,8 +10,13 @@ interface PostsAction {
     type: string;
 }
 
-export function posts(state: PostsState, action: PostsAction): PostsState {
+export function posts(state: PostsState = {}, action: PostsAction): PostsState {
     switch (action.type) {
+        case "fetched":
+            return {
+                message: "post fetched",
+                post: action.post
+            }
         case "create":
             return {
                 message: "post created",

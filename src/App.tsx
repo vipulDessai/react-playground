@@ -7,9 +7,9 @@ import {HomeComponent} from './Home';
 function App() {
   return (
     <div className="App">
-      <Link to="/">Home</Link>
-      <Link to="/">Posts</Link>
       <BrowserRouter>
+      <Link to="/">Home</Link>
+      <Link to="/posts">Posts</Link>
       <Switch>
         <Route exact path="/" component={HomeComponent}></Route>
         <Route path="/posts" component={PostsComponent}></Route>

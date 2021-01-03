@@ -1,13 +1,17 @@
 interface AlertState {
-    message: string;
+    message?: string;
 }
 
 interface AlertAction {
     type: string;
 }
 
-export function alert(state:AlertState, action: AlertAction): AlertState {
+export function alert(state:AlertState = {}, action: AlertAction): AlertState {
     switch (action.type) {
+        case "initiated":
+            return {
+                message: "initiated",
+            };
         case "success":
             return {
                 message: "success",
