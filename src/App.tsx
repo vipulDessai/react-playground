@@ -18,7 +18,7 @@ function App() {
         <Route exact path="/" component={HomeComponent}></Route>
         <Route path="/posts" component={PostsComponent}></Route>
         <Route path="/classy" component={(props: any) => <CLassyComponent {...props} foo={'foo'} />}></Route>
-        <Route path="/functional" component={() => <FunctionalComponent foo={'foo'} />}></Route>
+        <Route path="/functional" component={(props: any) => <FunctionalComponent {...props} foo={'foo'} />}></Route>
         <Redirect from="*" to="/"></Redirect>
       </Switch>
       </BrowserRouter>
