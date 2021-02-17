@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 const Home = (props) => {
     return (
         <>
-            <p data-testid="home">Home</p>
+            <p>Home is where the war is!!</p>
         </>
     )
 }

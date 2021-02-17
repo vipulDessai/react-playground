@@ -11,9 +11,20 @@ function Posts(props) {
     }, [dispatch]);
 
     return (
-        <>
-            <p>"id" : {props.state.posts.post && props.state.posts.post.id}</p>
-        </>
+        <ul>
+            {
+                props.state && props.state.posts.posts && props.state.posts.posts.map(
+                    (p, index) => (
+                        <li key={index}>
+                            <ul>
+                                <li style={{display: 'inline'}}>id - {p.id}</li>
+                                <li style={{display: 'inline'}}>&nbsp;{p.title}</li>
+                            </ul>
+                        </li>
+                    )
+                )
+            }
+        </ul>
     )
 }
 
@@ -24,7 +35,7 @@ const getPosts = () => {
             .then(
                 res => {
                     dispatch({type: 'initiated'});
-                    dispatch({type: 'fetched', post: res.data[0]});
+                    dispatch({type: 'fetched', posts: res.data});
                 }
             )
             .catch(

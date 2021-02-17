@@ -2,12 +2,14 @@ import { Post } from "../Posts/Post";
 
 interface PostsState {
     message?: string,
-    post?: Post
+    posts?: Post[],
+    post?: Post,
 }
 
 interface PostsAction {
-    post: Post;
-    type: string;
+    posts: Post[],
+    post: Post,
+    type: string,
 }
 
 export function posts(state: PostsState = {}, action: PostsAction): PostsState {
@@ -15,7 +17,7 @@ export function posts(state: PostsState = {}, action: PostsAction): PostsState {
         case "fetched":
             return {
                 message: "post fetched",
-                post: action.post
+                posts: action.posts
             }
         case "create":
             return {

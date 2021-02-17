@@ -10,10 +10,13 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+      <section>
       <Link to="/">Home</Link>
       <Link to="/posts">Posts</Link>
       <Link to="/classy">Classy</Link>
       <Link to="/functional">Functional</Link>
+      </section>
+      <section>
       <Switch>
         <Route exact path="/" component={HomeComponent}></Route>
         <Route path="/posts" component={PostsComponent}></Route>
@@ -21,6 +24,7 @@ function App() {
         <Route path="/functional" component={(props: any) => <FunctionalComponent {...props} foo={'foo'} />}></Route>
         <Redirect from="*" to="/"></Redirect>
       </Switch>
+      </section>
       </BrowserRouter>
     </div>
   );
